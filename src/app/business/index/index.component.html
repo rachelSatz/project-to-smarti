@@ -1,0 +1,29 @@
+<section>
+
+  <div class="d-flex justify-content-between">
+    <h4>רשימת חברות המוכנות להעסיק עובדים בעלי מוגבלויות</h4>
+    <a routerLink="/business/create" class="btn btn-success">להוספת העסק שלך למיזם לחץ כאן</a>
+  </div>
+
+  <br>
+
+  <table class="table text-center">
+    <tr>
+      <th>מספר חברה</th>
+      <th>שם חברה</th>
+      <th>מייל חברה</th>
+      <th>טלפון</th>
+      <th width="220px">עובדים משלנו כבר משולבים?</th>
+    </tr>
+    <tr *ngFor="let business of business">
+      <td>{{ business.id }}</td>
+      <td>{{ business.name }}</td>
+      <td>{{ business.email }}</td>
+      <td>{{ business.phone }}</td>
+      <td>
+        <a href="#" [routerLink]="['/business/', 'edit', business.id  ]" class="btn btn-primary">לעדכון עסק</a>
+        <button type="button" (click)="deleteBusiness(business.id)" class="btn btn-danger">למחיקת עסק</button>
+      </td>
+    </tr>
+  </table>
+</section>
